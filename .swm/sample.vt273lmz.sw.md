@@ -56,7 +56,7 @@ This code snippet sets up the basic structure and properties of a web page. It i
 
 </SwmSnippet>
 
-<SwmSnippet path="/source_code/frontend.html" line="45">
+<SwmSnippet path="source_code/frontend.html" line="45">
 
 ---
 
@@ -72,14 +72,10 @@ These resources packages are downloaded and placed inside the following path.
 
 /path to the resources
 
-```html
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css"
-/>
-<script src="/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-<script src="/webjars/jquery/3.7.1/jquery.min.js"></script>
+```
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css" />
+  <script src="/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script src="/webjars/jquery/3.7.1/jquery.min.js"></script>
 ```
 
 ---
