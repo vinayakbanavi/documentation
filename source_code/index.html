@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8"> <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive viewport -->
+    <title>My Website</title> <!-- Title of the webpage -->
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome icon library -->
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Fonts for custom font -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li> <!-- Navigation links -->
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Welcome to My Website</h1> <!-- Main heading -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> <!-- Subheading or description -->
+                <a href="#" class="btn">Learn More</a> <!-- Call to action button -->
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section id="about">
+            <div class="container">
+                <h2>About Us</h2> <!-- Section heading -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan turpis eget neque cursus, eu vestibulum nisi consequat. Donec mattis odio ac sem eleifend dignissim.</p> <!-- Content -->
+            </div>
+        </section>
+
+        <!-- Services section -->
+        <section id="services">
+            <div class="container">
+                <h2>Our Services</h2> <!-- Section heading -->
+                <!-- Individual service blocks -->
+                <div class="service">
+                    <i class="fas fa-cogs"></i> <!-- Service icon -->
+                    <h3>Service 1</h3> <!-- Service title -->
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> <!-- Service description -->
+                </div>
+                <div class="service">
+                    <i class="fas fa-users"></i>
+                    <h3>Service 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Service 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Us</h2> <!-- Section heading -->
+                <form action="#" method="post">
+                    <!-- Input fields for name, email, and message -->
+                    <input type="text" name="name" placeholder="Your Name">
+                    <input type="email" name="email" placeholder="Your Email">
+                    <textarea name="message" placeholder="Your Message"></textarea>
+                    <!-- Submit button -->
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p> <!-- Copyright notice -->
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script> <!-- Link to external JavaScript file -->
+</body>
+</html>
