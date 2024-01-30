@@ -1,0 +1,80 @@
+algorithmName	algorithmClassName	algorithmSubClassName
+Report Tables	Reports	blank
+Group Summaries	Reports	blank
+finish		
+Detect Outliers	Outliers	blank
+Impute Outliers	Outliers	blank
+finish		
+Descriptives	Descriptives	blank
+Frequencies	Descriptives	blank
+finish		
+One Sample t-Test	Compare Groups	t-Test
+Paired Samples t-Test	Compare Groups	t-Test
+Independent Samples t-Test	Compare Groups	t-Test
+One-Way ANOVA	Compare Groups	ANOVA
+Two-Way ANOVA	Compare Groups	ANOVA
+Repeated Measures	Compare Groups	ANOVA
+Wilcoxon Test	Compare Groups	Non Parametric Test
+Kruskal-Wallis Rank Sum Test	Compare Groups	Non Parametric Test
+Friedman Rank Sum Test	Compare Groups	Non Parametric Test
+Crosstab	Compare Groups	blank
+Group Descriptives	Compare Groups	blank
+MANOVA	Compare Groups	blank
+Levene's Test	Compare Groups	blank
+Bartlett Test	Compare Groups	blank
+Fligner-Killeen Test	Compare Groups	blank
+finish		
+Shapiro-Wilk Normality Test	Tests of Normality	blank
+Kolmogorov-Smirnov Test	Tests of Normality	blank
+Multivariate Normality Test	Tests of Normality	blank
+finish		
+Correlations	Regression	blank
+Partial Correlations	Regression	blank
+Linear Regression	Regression	blank
+Binomial Logistic Regression	Regression	blank
+Multinomial Logistic Regression	Regression	blank
+Lasso Regression	Regression	blank
+Ridge Regression	Regression	blank
+finish		
+K-Means	Clustering	blank
+Hierarchical Cluster	Clustering	blank
+finish		
+RPART	Machine Learning	blank
+Neural Network	Machine Learning	blank
+C5.0	Machine Learning	blank
+Naive Bayes	Machine Learning	blank
+finish		
+Simple Exponential Smoothing	Time Series	blank
+Holt's Method	Time Series	blank
+Holt Winter	Time Series	blank
+ARIMA	Time Series	blank
+ACF Plot	Time Series	blank
+PACF Plot	Time Series	blank
+Time Series Plot	Time Series	blank
+finish		
+Survival Curve	Survival Analysis	blank
+Cox Regression	Survival Analysis	blank
+finish		
+Reliability Analysis	Reliability Analysis	blank
+finish		
+Factor	Dimensionalities	blank
+PCA	Dimensionalities	blank
+Linear Discriminant Analysis	Dimensionalities	blank
+finish		
+Scatter Plot	Graphics	blank
+Bar Plot	Graphics	blank
+Box Plot	Graphics	blank
+Pie Chart	Graphics	blank
+Histogram	Graphics	blank
+Heat Map	Graphics	blank
+Pyramid Plot	Graphics	blank
+Dual Axes Plot	Graphics	blank
+Density Plot	Graphics	blank
+Correlogram	Graphics	blank
+Summary Plot	Graphics	blank
+Q-Q Plot	Graphics	blank
+finish		
+Advanced Bar Plot	Advanced Graphics	blank
+Advanced Scatter Plot	Advanced Graphics	blank
+Advanced Histogram	Advanced Graphics	blank
+finish		

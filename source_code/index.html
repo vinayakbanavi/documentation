@@ -1,97 +1,444 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
-    <!-- Meta tags -->
-    <meta charset="UTF-8"> <!-- Character encoding -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive viewport -->
-    <title>My Website</title> <!-- Title of the webpage -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Statcraft</title>
+	<link rel="shortcut icon" href="images/statcraft_icon.ico" type="image/x-icon">
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
-    
-    <!-- Font Awesome CDN for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome icon library -->
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Fonts for custom font -->
+	<!-- external css imports -->
+	<link rel="stylesheet" type="text/css" th:href="@{css/global/global.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/global/index.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/global/popup.css}" />
+
+	<link rel="stylesheet" type="text/css" th:href="@{css/pages/dataGrid.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/pages/pages.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/pages/dataImport.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/pages/outputPage.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/pages/models.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/pages/tablepage.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/pages/metapage.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/pages/outputprint.css}" />
+
+	<link rel="stylesheet" type="text/css" th:href="@{css/layouts/header.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/layouts/navbar.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/layouts/viewMenu.css}" />
+
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/valuevaluelabel.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/filters.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/export.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/alertbox.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/userprofile.css}" />
+
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/outputsharing/outputsharing.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/userdata/sharereplicate.css}" />
+
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/preprocessorpopups/recoding/recoding.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/preprocessorpopups/compute/compute.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/preprocessorpopups/leadlag/leadlag.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/preprocessorpopups/filler/filler.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/popups/preprocessorpopups/truefalse/truefalse.css}" />
+
+	<link rel="stylesheet" type="text/css"
+		th:href="@{css/popups/algorithmpopups/CustomFolders/customfoldersouter.css}" />
+
+
+
+	<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+
+	<!-- Include external resources below -->
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css" />
+	<script src="/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+	<script src="/webjars/jquery/3.7.1/jquery.min.js"></script>
+	<!-- End of external resources -->
+
+
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li> <!-- Navigation links -->
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero section -->
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Welcome to My Website</h1> <!-- Main heading -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> <!-- Subheading or description -->
-                <a href="#" class="btn">Learn More</a> <!-- Call to action button -->
-            </div>
-        </section>
+<body style="margin: 8px; overflow: hidden;">
+	<!-- Content of the HTML document goes here -->
+	<div class="splash-screen">Loading Application..Please Wait..</div>
+	<input type="hidden" th:value="${active_page}" id="currentActivePage">
+	<input type="hidden" th:value="${active_table_name}" th:attr="rowsize=${rowsize}, source_type=${source_type}"
+		id="currentTableName">
+	<input type="hidden" th:value="${permission}" id="tablePermission">
+	<div style="display: none">LOGIN_PAGE_IDENTIFIER</div>
+	<div class="headerDiv" style="height: 113px;" th:insert="~{layouts/header.html}"></div>
+	<div class="bodyDiv">
+		<!-- navBarDiv navBarDivId -->
+		<div tabindex="-1" class="sidenavi statcraftscrollbar" id="mySidenavi" style="width: 0px;"></div>
+		<div class="popupDiv statcraftscrollbar" id="popupDivId" value="">
+			<!-- application popups -->
+			<div class="spPopups userprofilepopupclass" th:insert="~{popups/userprofile.html}"></div>
+			<div class="spPopups valuevaluelabelpopupclass" th:insert="~{popups/valuevaluelabel.html}"></div>
+			<div class="spPopups normalizepopupclass" th:insert="~{popups/normalize/normalize.html}"></div>
+			<div class="spPopups samplingpopupclass" th:insert="~{popups/sampling/sampling.html}"></div>
+			<div class="spPopups meltpopupclass" id="melt" th:insert="~{popups/melt/melt.html}"></div>
+			<div class="spPopups derivepopupclass" th:insert="~{popups/Preprocess/compute/compute.html}"></div>
+			<div class="spPopups recodingpopupclass" th:insert="~{popups/Preprocess/recoding/recoding.html}"></div>
+			<div class="spPopups leadlagpopupclass" th:insert="~{popups/Preprocess/leadlag/leadlag.html}"></div>
+			<div class="spPopups fillerpopupclass" th:insert="~{popups/Preprocess/filler/filler.html}"></div>
+			<div class="spPopups truefalsepopupclass" th:insert="~{popups/Preprocess/truefalse/truefalse.html}"></div>
+			<div class="spPopups exportpopupclass" th:insert="~{popups/export.html}"></div>
 
-        <!-- About section -->
-        <section id="about">
-            <div class="container">
-                <h2>About Us</h2> <!-- Section heading -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan turpis eget neque cursus, eu vestibulum nisi consequat. Donec mattis odio ac sem eleifend dignissim.</p> <!-- Content -->
-            </div>
-        </section>
+			<div class="spPopups filterspopupclass" th:insert="~{popups/filters.html}"></div>
+			<div class="spPopups sharemodelpopupclass" th:insert="~{popups/modelshare.html}"></div>
+			<div th:replace="~{popups/expressionbuilderpopup.html}"></div>
+			<div class="spPopups outputsharingpopupclass" th:insert="~{popups/outputsharing/outputsharing.html}"></div>
+			<div class="spPopups sharereplicatepopupclass" th:insert="~{popups/userdata/shareReplicate.html}"></div>
+			<div class="spPopups downloadreplicatepopupclass" th:insert="~{popups/userdata/downloadReplicate.html}">
+			</div>
+			<div class="spPopups newdatasetpopupclass" th:insert="~{popups/userdata/newDataSet.html}"></div>
+			<div class="spPopups saveaspopupclass" th:insert="~{popups/userdata/saveAs.html}"></div>
+			<div class="spPopups customfolderpopupclass"
+				th:insert="~{popups/algorithmpopups/customfolders/customFolders.html}"></div>
 
-        <!-- Services section -->
-        <section id="services">
-            <div class="container">
-                <h2>Our Services</h2> <!-- Section heading -->
-                <!-- Individual service blocks -->
-                <div class="service">
-                    <i class="fas fa-cogs"></i> <!-- Service icon -->
-                    <h3>Service 1</h3> <!-- Service title -->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> <!-- Service description -->
-                </div>
-                <div class="service">
-                    <i class="fas fa-users"></i>
-                    <h3>Service 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Service 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-        </section>
+			<!-- Algorithm popups -->
 
-        <!-- Contact section -->
-        <section id="contact">
-            <div class="container">
-                <h2>Contact Us</h2> <!-- Section heading -->
-                <form action="#" method="post">
-                    <!-- Input fields for name, email, and message -->
-                    <input type="text" name="name" placeholder="Your Name">
-                    <input type="email" name="email" placeholder="Your Email">
-                    <textarea name="message" placeholder="Your Message"></textarea>
-                    <!-- Submit button -->
-                    <button type="submit">Send</button>
-                </form>
-            </div>
-        </section>
-    </main>
+			<div class="algorithmPopup" id="algorithmPopupId">
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 My Website. All rights reserved.</p> <!-- Copyright notice -->
-    </footer>
+				<!-- Reports -->
 
-    <!-- External JavaScript -->
-    <script src="script.js"></script> <!-- Link to external JavaScript file -->
+				<div class="algorithmSubPopups customtablepopupclass" id="reporttables"
+					th:insert="~{popups/algorithmpopups/customtables/customtables.html}"></div>
+				<div class="algorithmSubPopups gruopsummariespopupclass" id="groupsummaries"
+					th:insert="~{popups/algorithmpopups/groupsummaries/groupsummaries.html}"></div>
+
+				<!-- Outliers -->
+
+				<div class="algorithmSubPopups detectoutlierspopupclass" id="detectoutliers"
+					th:insert="~{popups/algorithmpopups/detectoutliers/detectoutliers.html}"></div>
+				<div class="algorithmSubPopups imputeoutlierspopupclass" id="imputeoutliers"
+					th:insert="~{popups/algorithmpopups/imputeoutliers/imputeoutliers.html}"></div>
+
+				<!-- Descriptives -->
+
+				<div class="algorithmSubPopups desriptivespopupclass" id="descriptives"
+					th:insert="~{popups/algorithmpopups/descriptives/descriptives.html}"></div>
+				<div class="algorithmSubPopups frequenciespopupclass" id="frequencies"
+					th:insert="~{popups/algorithmpopups/frequencies/frequencies.html}"></div>
+
+				<!-- Compare Group -->
+
+				<!-- t-Test -->
+
+				<div class="algorithmSubPopups onesamplettestpopupclass" id="onesamplettest"
+					th:insert="~{popups/algorithmpopups/onesamplettest/onesamplettest.html}"></div>
+				<div class="algorithmSubPopups pairedsamplesttestpopupclass" id="pairedsamplesttest"
+					th:insert="~{popups/algorithmpopups/pairedsamplesttest/pairedsamplettest.html}"></div>
+				<div class="algorithmSubPopups independentsamplesttestpopupclass" id="independentsamplesttest"
+					th:insert="~{popups/algorithmpopups/independentsamplesttest/independentsamplesttest.html}"></div>
+
+				<!-- Anova -->
+
+				<div class="algorithmSubPopups onewayanovapopupclass" id="onewayanova"
+					th:insert="~{popups/algorithmpopups/onewayanova/onewayanova.html}"></div>
+				<div class="algorithmSubPopups twowayanovapopupclass" id="twowayanova"
+					th:insert="~{popups/algorithmpopups/twowayanova/twowayanova.html}"></div>
+				<div class="algorithmSubPopups measurespopupclass" id="repeatedmeasures"
+					th:insert="~{popups/algorithmpopups/repeatedmeasures/measures.html}"></div>
+
+				<!-- Non Parametic Test -->
+
+				<div class="algorithmSubPopups wilcoxonsignedpopupclass" id="wilcoxontest"
+					th:insert="~{popups/algorithmpopups/wilcoxonsignedrank/wilcoxonsigned.html}"></div>
+				<div class="algorithmSubPopups kruskalwallispopupclass" id="kruskalwallisranksumtest"
+					th:insert="~{popups/algorithmpopups/kruskalwallis/kruskalwallis.html}"></div>
+				<div class="algorithmSubPopups friedmantestpopupclass" id="friedmanranksumtest"
+					th:insert="~{popups/algorithmpopups/friedman/friedman.html}"></div>
+
+				<!-- Cross Tab -->
+
+				<div class="algorithmSubPopups crosstabpopupclass" id="crosstab"
+					th:insert="~{popups/algorithmpopups/crosstab/crosstab.html}"></div>
+
+				<!-- Group Descriptives -->
+
+				<div class="algorithmSubPopups groupdescriptivespopupclass" id="groupdescriptives"
+					th:insert="~{popups/algorithmpopups/groupdescriptives/groupdescriptives.html}"></div>
+
+				<!-- Manova -->
+
+				<div class="algorithmSubPopups manovapopupclass" id="manova"
+					th:insert="~{popups/algorithmpopups/manova/manova.html}"></div>
+
+				<!-- Bartlett Test -->
+
+				<div class="algorithmSubPopups bartlettspopupclass" id="bartletttest"
+					th:insert="~{popups/algorithmpopups/bartletts/bartletts.html}"></div>
+
+				<!-- Levenes Test -->
+
+				<div class="algorithmSubPopups levenestestpopupclass" id="levenestest"
+					th:insert="~{popups/algorithmpopups/levenes/levenes.html}"></div>
+
+				<!-- Fligner killen Test -->
+
+				<div class="algorithmSubPopups flignerkilleentestpopupclass" id="flignerkilleentest"
+					th:insert="~{popups/algorithmpopups/flignerkilleentest/flignerkilleentest.html}"></div>
+
+				<!-- Tests Of Normality -->
+
+				<div class="algorithmSubPopups shapirowilkstestpopupclass" id="shapirowilknormalitytest"
+					th:insert="~{popups/algorithmpopups/shapirowilks/shapirowilks.html}"></div>
+				<div class="algorithmSubPopups kolmogorovtestpopupclass" id="kolmogorovsmirnovtest"
+					th:insert="~{popups/algorithmpopups/kolmogorov/kolmogorov.html}"></div>
+				<div class="algorithmSubPopups multivariatenormalitytestpopupclass" id="multivariatenormalitytest"
+					th:insert="~{popups/algorithmpopups/multivariatenormalitytest/multivariatenormalitytest.html}">
+				</div>
+
+				<!-- Regression -->
+
+				<div class="algorithmSubPopups correlationsspopupclass" id="correlations"
+					th:insert="~{popups/algorithmpopups/correlations/correlations.html}"></div>
+				<div class="algorithmSubPopups partialcorrelationsspopupclass" id="partialcorrelations"
+					th:insert="~{popups/algorithmpopups/partialcorrelations/partialcorrelations.html}"></div>
+				<div class="algorithmSubPopups linearregressionpopupclass" id="linearregression"
+					th:insert="~{popups/algorithmpopups/linearregression/linearregression.html}"></div>
+				<div class="algorithmSubPopups binomialpopupclass" id="binomiallogisticregression"
+					th:insert="~{popups/algorithmpopups/binomiallogisticregression/binomiallogisticregression.html}">
+				</div>
+				<div class="algorithmSubPopups multinomiallogisticregressionpopupclass"
+					id="multinomiallogisticregression"
+					th:insert="~{popups/algorithmpopups/multinomiallogisticregression/multinomiallogisticregression.html}">
+				</div>
+				<div class="algorithmSubPopups lassoregressionpopupclass" id="lassoregression"
+					th:insert="~{popups/algorithmpopups/lassoregression/lassoregression.html}"></div>
+				<div class="algorithmSubPopups ridgeregressionpopupclass" id="ridgeregression"
+					th:insert="~{popups/algorithmpopups/ridgeregression/ridgeregression.html}"></div>
+
+				<!-- Clustering -->
+
+				<div class="algorithmSubPopups kmeanspopupclass" id="kmeans"
+					th:insert="~{popups/algorithmpopups/kmeans/kmeans.html}"></div>
+				<div class="algorithmSubPopups hclusterpopupclass" id="hierarchicalcluster"
+					th:insert="~{popups/algorithmpopups/hcluster/hcluster.html}"></div>
+
+				<!-- Machine Learning -->
+
+				<div class="algorithmSubPopups cartpopupclass" id="rpart"
+					th:insert="~{popups/algorithmpopups/cart/cart.html}"></div>
+				<div class="algorithmSubPopups c5.0popupclass" id="c50"
+					th:insert="~{popups/algorithmpopups/c50/c50.html}"></div>
+				<div class="algorithmSubPopups neuralnetworkpopupclass" id="neuralnetwork"
+					th:insert="~{popups/algorithmpopups/neuralnetwork/neuralnetwork.html}"></div>
+				<div class="algorithmSubPopups naivebayespopupclass" id="naivebayes"
+					th:insert="~{popups/algorithmpopups/naivebayes/naivebayes.html}"></div>
+
+				<!-- Time Series-->
+
+				<div class="algorithmSubPopups timeseriesplotpopupclass" id="timeseriesplot"
+					th:insert="~{popups/algorithmpopups/timeseriesplot/timeseriesplot.html}"></div>
+				<div class="algorithmSubPopups exponentialsmoothingpopupclass" id="simpleexponentialsmoothing"
+					th:insert="~{popups/algorithmpopups/exponentialsmoothing/exponentialsmoothing.html}"></div>
+				<div class="algorithmSubPopups holtsmethodpopupclass" id="holtsmethod"
+					th:insert="~{popups/algorithmpopups/holtsmethod/holtsmethod.html}"></div>
+				<div class="algorithmSubPopups holtwinterpopupclass" id="holtwinter"
+					th:insert="~{popups/algorithmpopups/holtwinter/holtwinter.html}"></div>
+				<div class="algorithmSubPopups arimapopupclass" id="arima"
+					th:insert="~{popups/algorithmpopups/arima/arima.html}"></div>
+				<div class="algorithmSubPopups acfplotpopupclass" id="acfplot"
+					th:insert="~{popups/algorithmpopups/acfplot/acfplot.html}"></div>
+				<div class="algorithmSubPopups pacfplotpopupclass" id="pacfplot"
+					th:insert="~{popups/algorithmpopups/pacfplot/pacfplot.html}"></div>
+
+				<!-- Survival Analysis -->
+				<div class="algorithmSubPopups survivalcurvepopupclass" id="survivalcurve"
+					th:insert="~{popups/algorithmpopups/survivalcurve/survivalcurve.html}"></div>
+				<div class="algorithmSubPopups coxregressionpopupclass" id="coxregression"
+					th:insert="~{popups/algorithmpopups/coxregression/coxregression.html}"></div>
+				<div class="algorithmSubPopups survivalcurvepopupclass" id="reliabilityanalysis"
+					th:insert="~{popups/algorithmpopups/reliabilityanalysis/reliabilityanalysis.html}"></div>
+
+				<!-- Dimensionalities -->
+				<div class="algorithmSubPopups pcapopupclass" id="factor"
+					th:insert="~{popups/algorithmpopups/factor/factor.html}"></div>
+				<div class="algorithmSubPopups pcapopupclass" id="pca"
+					th:insert="~{popups/algorithmpopups/pca/pca.html}"></div>
+				<div class="algorithmSubPopups lineardiscriminantanalysispopupclass" id="lineardiscriminantanalysis"
+					th:insert="~{popups/algorithmpopups/lineardiscriminantanalysis/lineardiscriminantanalysis.html}">
+				</div>
+
+				<!-- Graphics -->
+
+				<div class="algorithmSubPopups scatterplotpopupclass" id="scatterplot"
+					th:insert="~{popups/plots/scatterplot/scatterplot.html}"></div>
+				<div class="algorithmSubPopups barplotpopupclass" id="barplot"
+					th:insert="~{popups/plots/barplot/barplot.html}"></div>
+				<div class="algorithmSubPopups boxplotpopupclass" id="boxplot"
+					th:insert="~{popups/plots/boxplot/boxplot.html}"></div>
+				<div class="algorithmSubPopups piechartpopupclass" id="piechart"
+					th:insert="~{popups/plots/piechart/piechart.html}"></div>
+				<div class="algorithmSubPopups histogrampopupclass" id="histogram"
+					th:insert="~{popups/plots/histogram/histogram.html}"></div>
+				<div class="algorithmSubPopups heatmappopupclass" id="heatmap"
+					th:insert="~{popups/plots/heatmap/heatmap.html}"></div>
+				<div class="algorithmSubPopups pyramidplotpopupclass" id="pyramidplot"
+					th:insert="~{popups/plots/pyramidplot/pyramidplot.html}"></div>
+				<div class="algorithmSubPopups dualaxesplotpopupclass" id="dualaxesplot"
+					th:insert="~{popups/plots/dualaxesplot/dualaxesplot.html}"></div>
+				<div class="algorithmSubPopups densityplotpopupclass" id="densityplot"
+					th:insert="~{popups/plots/densityplot/densityplot.html}"></div>
+				<div class="algorithmSubPopups corrplotpopupclass" id="correlogram"
+					th:insert="~{popups/plots/corrplot/corrplot.html}"></div>
+				<div class="algorithmSubPopups summaryplotpopupclass" id="summaryplot"
+					th:insert="~{popups/plots/summary/summary.html}"></div>
+				<div class="algorithmSubPopups qqplotpopupclass" id="qqplot"
+					th:insert="~{popups/plots/qqplot/qqplot.html}"></div>
+
+				<!--Advanced Graphics -->
+				<div class="algorithmSubPopups advancedbarplotpopupclass" id="advancedbarplot"
+					th:insert="~{popups/plots/advanced/barplot/advancedbarplot.html}"></div>
+				<div class="algorithmSubPopups advancedscatterplotpopupclass" id="advancedscatterplot"
+					th:insert="~{popups/plots/advanced/scatterplot/advancedscatterplot.html}"></div>
+				<div class="algorithmSubPopups gghistogrampopupclass" id="advancedhistogram"
+					th:insert="~{popups/advancedplots/histogram/gghistogram.html}"></div>
+
+			</div>
+		</div>
+
+		<div id="viewmenu" th:insert="~{layouts/viewMenu.html}"></div>
+
+		<div id="outputprintpage" th:insert="~{layouts/outputprintdivs.html}"></div>
+
+		<div class="appPagesDiv" style="height: 100%; width: 100%;">
+
+			<div class="appPagesSubDiv activePage" id="dataGrid" style="display: none;"
+				th:insert="~{pages/dataGrid.html}"></div>
+			<div class="appPagesSubDiv tablePageDiv activePage" id="tablepage" style="display: none;"
+				th:insert="~{pages/tablepage.html}"></div>
+			<div class="appPagesSubDiv importDataDiv statcraftscrollbar" id="importData" style="display: none;"
+				th:insert="~{pages/dataImport.html}"></div>
+			<div class="appPagesSubDiv adminDiv" id="adminPage" style="display: none;" th:insert="~{pages/admin.html}">
+			</div>
+			<div class="appPagesSubDiv metaDiv " id="metaPage" style="display: none;"
+				th:insert="~{pages/metapage.html}"></div>
+			<div class="appPagesSubDiv outputDiv" id="outputPage" style="display: none;"
+				th:insert="~{pages/output.html}"></div>
+			<div class="appPagesSubDiv modelsDiv" id="modelsPage" style="display: none;"
+				th:insert="~{pages/modelspage.html}"></div>
+		</div>
+
+
+	</div>
+	<div class="footerDiv" style="height: 0%">
+		<!-- Data to be loaded in algorithms. -->
+		<div id="DataModel_DIV" style="display: none;"></div>
+		<!-- Loader spinner -->
+		<div class="loader">
+			<div class="loader-spinner"></div>
+		</div>
+		<!-- Success-Error message -->
+		<div class="message_screen" style="display: none;">
+			<div class="sub_message_screen"></div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-fullscreen">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"></h5>
+					<div>
+						<div>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"
+								style=" border: none; background: none; position: relative; top: -4px;">
+								<span aria-hidden="true" style=" border: none; outline: none;">
+									<a href="" id="downloadBase64" download="Density Plot" class="close">
+										<img src="/images/arrow.png" class="saveImageBase64" title="Save Image"
+											alt="arrowsaveimage">
+									</a>
+								</span>
+							</button>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-body">
+					<img id="modelimage" src="" alt="image">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Code For Logout Starts Here-->
+
+	<script>
+		/* function clickListener(e) 
+		{   
+			var req = new XMLHttpRequest();
+			req.open('GET', window.location, false);
+			req.send(null);
+			var headers = req.responseURL;
+			console.log("responseURL",headers)
+			if(headers.includes("/login"))
+			{
+				window.location.reload()
+			}
+		}
+				
+		$(document).ajaxcomplete(function(){
+			clickListener();
+		}); */
+
+		$(document).ajaxComplete(function (event, xhr, settings) {
+			if (xhr.responseText.indexOf("User Login") != -1) {
+				window.location.reload()
+			}
+		});
+
+	</script>
+
+	<!-- Code For Logout Ends Here-->
+
+	<script type="text/javascript" th:src="@{js/popup.js}"></script>
+	<script type="text/javascript" th:src="@{js/navbar.js}"></script>
+	<script type="text/javascript" th:src="@{js/header.js}"></script>
+	<script type="text/javascript" th:src="@{js/pages/dataImport.js}"></script>
+	<script type="text/javascript" th:src="@{js/pages/dataGrid.js}"></script>
+	<script type="text/javascript" th:src="@{js/pages/output.js}"></script>
+	<script type="text/javascript" th:src="@{js/pages/outputprintjquery.js}"></script>
+	<script type="text/javascript" th:src="@{js/pages/tablepage.js}"></script>
+	<script type="text/javascript" th:src="@{js/pages/models.js}"></script>
+	<script type="text/javascript" th:src="@{js/pages/metapage.js}"></script>
+	<script type="text/javascript" th:src="@{js/layouts/viewMenu.js}"></script>
+	<script type="text/javascript" th:src="@{js/pages/appPages.js}"></script>
+
+	<script type="text/javascript" th:src="@{js/popups/export.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/userprofile.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/valuevaluelabel.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/filters.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/expressionbuilder.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/preprocessorpopups/compute/compute.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/preprocessorpopups/recoding/recoding.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/preprocessorpopups/leadlag/leadlag.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/preprocessorpopups/filler/filler.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/preprocessorpopups/truefalse/truefalsejquery.js}"></script>
+
+	<script type="text/javascript" th:src="@{js/popups/algorithmpopups/CustomFolders/customfolders.js}"></script>
+
+	<script type="text/javascript" th:src="@{js/popups/preprocessorpopups/compute/computejquery.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/outputsharing/outputsharing.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/userdata/sharereplicate.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/userdata/sharereplicateutils.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/userdata/downloadreplicate.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/userdata/newDataSet.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/userdata/saveAs.js}"></script>
+
+	<script type="text/javascript" th:src="@{js/global/global.js}"></script>
+	<script type="text/javascript" th:src="@{js/fixedGlobalPages.js}"></script>
+
+	<script type="text/javascript" th:src="@{js/algorithm.js}"></script>
+
+	<!-- WEBSOCKET -->
+	<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
+	<script type="text/javascript" th:src="@{js/popups/models/datatab.js}"></script>
+	<script type="text/javascript" th:src="@{js/popups/models/ModelScoreJsonBuilder.js}"></script>
+
 </body>
+
 </html>
