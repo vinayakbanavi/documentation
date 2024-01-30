@@ -30,7 +30,7 @@ title: sample doc
 </html>
 ```
 
-<SwmSnippet path="/source_code/frontend.html" line="4">
+<SwmSnippet path="source_code/index.html" line="4">
 
 ---
 
@@ -40,7 +40,7 @@ title: sample doc
 - viewport settings for responsive design, the title of the page,&nbsp;
 - and the shortcut icon displayed in the browser tab.
 
-```html
+```
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -52,17 +52,14 @@ title: sample doc
 
 </SwmSnippet>
 
-&nbsp;
-
-<SwmSnippet path="/source_code/frontend.html" line="10">
+<SwmSnippet path="source_code/index.html" line="10">
 
 ---
 
 ### External CSS file Imports.
 
-- All the external css files are available inside /path_to_folder in a simple hierarchical manner,
-- These css resources are imported as and when needed from <SwmPath>[source_code/index.html](/source_code/index.html)</SwmPath> and corresponding external html files,
-- It includes three separate <SwmToken path="/source_code/frontend.html" pos="8:2:2" line-data="	&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/statcraft_icon.ico&quot; type=&quot;image/x-icon&quot;&gt;">`link`</SwmToken> tags, each linking to a different CSS file.
+- All the external css files are available inside <SwmPath>[source_code/resources/static/](/source_code/resources/static/)</SwmPath> in a simple hierarchical manner,
+- Import can be done by using <SwmToken path="/source_code/index.html" pos="11:2:2" line-data="	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; th:href=&quot;@{css/global/global.css}&quot; /&gt;">`link`</SwmToken> tags, linking to a CSS files placed inside .
 - These CSS files are used to style various elements of the webpage, such as the global styles, index page styles, and popup styles.
 
 ```
@@ -76,15 +73,15 @@ title: sample doc
 
 </SwmSnippet>
 
-<SwmSnippet path="/source_code/frontend.html" line="50">
+<SwmSnippet path="source_code/index.html" line="50">
 
 ---
 
 ### The following External resources are included into the project.
 
-- <SwmToken path="/source_code/frontend.html" pos="51:34:38" line-data="	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/webjars/bootstrap/5.3.2/css/bootstrap.min.css&quot; /&gt;">`bootstrap.min.css`</SwmToken> stylesheet from the Bootstrap library.
-- <SwmToken path="/source_code/frontend.html" pos="52:20:26" line-data="	&lt;script src=&quot;/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;">`bootstrap.bundle.min.js`</SwmToken> script from the Bootstrap library.
-- <SwmToken path="/source_code/frontend.html" pos="53:18:22" line-data="	&lt;script src=&quot;/webjars/jquery/3.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;">`jquery.min.js`</SwmToken> script from the <SwmToken path="/source_code/frontend.html" pos="53:10:10" line-data="	&lt;script src=&quot;/webjars/jquery/3.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;">`jquery`</SwmToken> library.
+- <SwmToken path="/source_code/index.html" pos="51:34:38" line-data="	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/webjars/bootstrap/5.3.2/css/bootstrap.min.css&quot; /&gt;">`bootstrap.min.css`</SwmToken> stylesheet from the Bootstrap library.
+- <SwmToken path="/source_code/index.html" pos="52:20:26" line-data="	&lt;script src=&quot;/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;">`bootstrap.bundle.min.js`</SwmToken> script from the Bootstrap library.
+- <SwmToken path="/source_code/index.html" pos="53:18:22" line-data="	&lt;script src=&quot;/webjars/jquery/3.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;">`jquery.min.js`</SwmToken> script from the <SwmToken path="/source_code/index.html" pos="53:10:10" line-data="	&lt;script src=&quot;/webjars/jquery/3.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;">`jquery`</SwmToken> library.
 
 These resources are used to enhance the styling and interactive functionality of the web page.
 
@@ -104,7 +101,7 @@ These resources packages are downloaded and placed inside the following path.
 
 </SwmSnippet>
 
-<SwmSnippet path="/source_code/frontend.html" line="59">
+<SwmSnippet path="/source_code/index.html" line="59">
 
 ---
 
@@ -114,15 +111,15 @@ These resources packages are downloaded and placed inside the following path.
 
   - The `<body>` element encompasses all content within the HTML document.
 
-- **Inline** <SwmToken path="/source_code/frontend.html" pos="59:3:3" line-data="&lt;body style=&quot;margin: 8px; overflow: hidden;&quot;&gt;">`style`</SwmToken>**:**
+- **Inline** <SwmToken path="/source_code/index.html" pos="59:3:3" line-data="&lt;body style=&quot;margin: 8px; overflow: hidden;&quot;&gt;">`style`</SwmToken>**:**
 
-  - <SwmToken path="/source_code/frontend.html" pos="59:12:12" line-data="&lt;body style=&quot;margin: 8px; overflow: hidden;&quot;&gt;">`overflow`</SwmToken> property set to <SwmToken path="/source_code/frontend.html" pos="59:15:15" line-data="&lt;body style=&quot;margin: 8px; overflow: hidden;&quot;&gt;">`hidden`</SwmToken>.
+  - <SwmToken path="/source_code/index.html" pos="59:12:12" line-data="&lt;body style=&quot;margin: 8px; overflow: hidden;&quot;&gt;">`overflow`</SwmToken> property set to <SwmToken path="/source_code/index.html" pos="59:15:15" line-data="&lt;body style=&quot;margin: 8px; overflow: hidden;&quot;&gt;">`hidden`</SwmToken>.
 
     - Purpose: Designed for a One-Page Website layout.
 
     - Prevents scrolling beyond the viewport boundaries, maintaining a single-page experience.
 
-```html
+```
 <body style="margin: 8px; overflow: hidden;">
 	<!-- Content of the HTML document goes here -->
 ```
@@ -131,13 +128,13 @@ These resources packages are downloaded and placed inside the following path.
 
 </SwmSnippet>
 
-<SwmSnippet path="/source_code/frontend.html" line="67">
+<SwmSnippet path="/source_code/index.html" line="67">
 
 ---
 
-### <SwmToken path="/source_code/frontend.html" pos="67:7:7" line-data="	&lt;div class=&quot;headerDiv&quot; style=&quot;height: 113px;&quot; th:insert=&quot;~{layouts/header.html}&quot;&gt;&lt;/div&gt;">`headerDiv`</SwmToken> is a wrapper container for various elements that goes into header section of the web page.
+### <SwmToken path="/source_code/index.html" pos="67:7:7" line-data="	&lt;div class=&quot;headerDiv&quot; style=&quot;height: 113px;&quot; th:insert=&quot;~{layouts/header.html}&quot;&gt;&lt;/div&gt;">`headerDiv`</SwmToken> is a wrapper container for various elements that goes into header section of the web page.
 
-```html
+```
 	<div class="headerDiv" style="height: 113px;" th:insert="~{layouts/header.html}"></div>
 ```
 
@@ -145,19 +142,19 @@ These resources packages are downloaded and placed inside the following path.
 
 </SwmSnippet>
 
-<SwmSnippet path="/source_code/frontend.html" line="68">
+<SwmSnippet path="/source_code/index.html" line="68">
 
 ---
 
-### <SwmToken path="/source_code/frontend.html" pos="68:7:7" line-data="	&lt;div class=&quot;bodyDiv&quot;&gt;">`bodyDiv`</SwmToken> is a wrapper container for following members
+### <SwmToken path="/source_code/index.html" pos="68:7:7" line-data="	&lt;div class=&quot;bodyDiv&quot;&gt;">`bodyDiv`</SwmToken> is a wrapper container for following members
 
-- <SwmToken path="/source_code/frontend.html" pos="70:14:14" line-data="		&lt;div tabindex=&quot;-1&quot; class=&quot;sidenavi statcraftscrollbar&quot; id=&quot;mySidenavi&quot; style=&quot;width: 0px;&quot;&gt;&lt;/div&gt;">`sidenavi`</SwmToken> : Navigation Bar
-- <SwmToken path="/source_code/frontend.html" pos="71:7:7" line-data="		&lt;div class=&quot;popupDiv statcraftscrollbar&quot; id=&quot;popupDivId&quot; value=&quot;&quot;&gt;">`popupDiv`</SwmToken> : Application Popup containers
-- <SwmToken path="/source_code/frontend.html" pos="301:7:7" line-data="		&lt;div id=&quot;viewmenu&quot; th:insert=&quot;~{layouts/viewMenu.html}&quot;&gt;&lt;/div&gt;">`viewmenu`</SwmToken>&nbsp;
-- <SwmToken path="/source_code/frontend.html" pos="303:7:7" line-data="		&lt;div id=&quot;outputprintpage&quot; th:insert=&quot;~{layouts/outputprintdivs.html}&quot;&gt;&lt;/div&gt;">`outputprintpage`</SwmToken>
-- <SwmToken path="/source_code/frontend.html" pos="305:7:7" line-data="		&lt;div class=&quot;appPagesDiv&quot; style=&quot;height: 100%; width: 100%;&quot;&gt;">`appPagesDiv`</SwmToken>
+- <SwmToken path="/source_code/index.html" pos="70:14:14" line-data="		&lt;div tabindex=&quot;-1&quot; class=&quot;sidenavi statcraftscrollbar&quot; id=&quot;mySidenavi&quot; style=&quot;width: 0px;&quot;&gt;&lt;/div&gt;">`sidenavi`</SwmToken> : Navigation Bar
+- <SwmToken path="/source_code/index.html" pos="71:7:7" line-data="		&lt;div class=&quot;popupDiv statcraftscrollbar&quot; id=&quot;popupDivId&quot; value=&quot;&quot;&gt;">`popupDiv`</SwmToken> : Application Popup containers
+- <SwmToken path="/source_code/index.html" pos="26:29:29" line-data="	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; th:href=&quot;@{css/layouts/viewMenu.css}&quot; /&gt;">`viewMenu`</SwmToken>&nbsp;
+- <SwmToken path="/source_code/index.html" pos="303:7:7" line-data="		&lt;div id=&quot;outputprintpage&quot; th:insert=&quot;~{layouts/outputprintdivs.html}&quot;&gt;&lt;/div&gt;">`outputprintpage`</SwmToken>
+- <SwmToken path="/source_code/index.html" pos="305:7:7" line-data="		&lt;div class=&quot;appPagesDiv&quot; style=&quot;height: 100%; width: 100%;&quot;&gt;">`appPagesDiv`</SwmToken>
 
-```html
+```
 	<div class="bodyDiv">
 ```
 
@@ -165,13 +162,14 @@ These resources packages are downloaded and placed inside the following path.
 
 </SwmSnippet>
 
-<SwmSnippet path="/source_code/frontend.html" line="70">
+<SwmSnippet path="/source_code/index.html" line="70">
 
 ---
 
-### <SwmToken path="/source_code/frontend.html" pos="70:14:14" line-data="		&lt;div tabindex=&quot;-1&quot; class=&quot;sidenavi statcraftscrollbar&quot; id=&quot;mySidenavi&quot; style=&quot;width: 0px;&quot;&gt;&lt;/div&gt;">`sidenavi`</SwmToken> is a wrapper container for following members
+### <SwmToken path="/source_code/index.html" pos="70:14:14" line-data="		&lt;div tabindex=&quot;-1&quot; class=&quot;sidenavi statcraftscrollbar&quot; id=&quot;mySidenavi&quot; style=&quot;width: 0px;&quot;&gt;&lt;/div&gt;">`sidenavi`</SwmToken>wrapper container for following members
 
 - Various popups will get embeded as a list of links dynamically into this container while loading the web page.
+- The above process is handled by javascript with a backend api call.
 - If new popup is to be added, it must be added into <SwmPath>[source_code/resources/static/algorithms.csv](/source_code/resources/static/algorithms.csv)</SwmPath> file&nbsp;
 
 ```
@@ -182,17 +180,17 @@ These resources packages are downloaded and placed inside the following path.
 
 </SwmSnippet>
 
-<SwmSnippet path="/source_code/frontend.html" line="71">
+<SwmSnippet path="/source_code/index.html" line="71">
 
 ---
 
 ### Application popups
 
-- <SwmToken path="/source_code/frontend.html" pos="71:7:7" line-data="		&lt;div class=&quot;popupDiv statcraftscrollbar&quot; id=&quot;popupDivId&quot; value=&quot;&quot;&gt;">`popupDiv`</SwmToken> is a wrapper container for various popup containers
-- <SwmToken path="/source_code/frontend.html" pos="73:7:7" line-data="			&lt;div class=&quot;spPopups userprofilepopupclass&quot; th:insert=&quot;~{popups/userprofile.html}&quot;&gt;&lt;/div&gt;">`spPopups`</SwmToken> is a common wrapper container used for integrating various popup pages
-- If a new popup is to be integrated new wrapper container <SwmToken path="/source_code/frontend.html" pos="73:7:7" line-data="			&lt;div class=&quot;spPopups userprofilepopupclass&quot; th:insert=&quot;~{popups/userprofile.html}&quot;&gt;&lt;/div&gt;">`spPopups`</SwmToken>is to be added inside <SwmToken path="/source_code/frontend.html" pos="71:7:7" line-data="		&lt;div class=&quot;popupDiv statcraftscrollbar&quot; id=&quot;popupDivId&quot; value=&quot;&quot;&gt;">`popupDiv`</SwmToken> with proper id's and source link in <SwmToken path="/source_code/frontend.html" pos="73:12:14" line-data="			&lt;div class=&quot;spPopups userprofilepopupclass&quot; th:insert=&quot;~{popups/userprofile.html}&quot;&gt;&lt;/div&gt;">`th:insert`</SwmToken>&nbsp;
+- <SwmToken path="/source_code/index.html" pos="71:7:7" line-data="		&lt;div class=&quot;popupDiv statcraftscrollbar&quot; id=&quot;popupDivId&quot; value=&quot;&quot;&gt;">`popupDiv`</SwmToken>for various popup containers
+- <SwmToken path="/source_code/index.html" pos="73:7:7" line-data="			&lt;div class=&quot;spPopups userprofilepopupclass&quot; th:insert=&quot;~{popups/userprofile.html}&quot;&gt;&lt;/div&gt;">`spPopups`</SwmToken> is a common wrapper container used for integrating various popup pages
+- If a new popup is to be integrated new wrapper container <SwmToken path="/source_code/index.html" pos="73:7:7" line-data="			&lt;div class=&quot;spPopups userprofilepopupclass&quot; th:insert=&quot;~{popups/userprofile.html}&quot;&gt;&lt;/div&gt;">`spPopups`</SwmToken> added inside <SwmToken path="/source_code/index.html" pos="71:7:7" line-data="		&lt;div class=&quot;popupDiv statcraftscrollbar&quot; id=&quot;popupDivId&quot; value=&quot;&quot;&gt;">`popupDiv`</SwmToken>with proper id's and source path in <SwmToken path="/source_code/index.html" pos="73:12:14" line-data="			&lt;div class=&quot;spPopups userprofilepopupclass&quot; th:insert=&quot;~{popups/userprofile.html}&quot;&gt;&lt;/div&gt;">`th:insert`</SwmToken>&nbsp;
 
-```html
+```
 		<div class="popupDiv statcraftscrollbar" id="popupDivId" value="">
 			<!-- application popups -->
 			<div class="spPopups userprofilepopupclass" th:insert="~{popups/userprofile.html}"></div>
@@ -215,8 +213,8 @@ graph TD
 %% Swimm:
 %% graph TD
 %%     A[Integration of new Popup] -->|Add Popup details into the following file| B[source_code/resources/static/algorithms.csv]
-%%     B -->|navigate to following container in index.html| C[<SwmToken path="/source_code/frontend.html" pos="71:7:7" line-data="		&lt;div class=&quot;popupDiv statcraftscrollbar&quot; id=&quot;popupDivId&quot; value=&quot;&quot;&gt;">`popupDiv`</SwmToken>]
-%%     C -->|add new popup container| E[<SwmToken path="/source_code/frontend.html" pos="73:7:7" line-data="			&lt;div class=&quot;spPopups userprofilepopupclass&quot; th:insert=&quot;~{popups/userprofile.html}&quot;&gt;&lt;/div&gt;">`spPopups`</SwmToken>]
+%%     B -->|navigate to following container in index.html| C[<SwmToken path="/source_code/index.html" pos="71:7:7" line-data="		&lt;div class=&quot;popupDiv statcraftscrollbar&quot; id=&quot;popupDivId&quot; value=&quot;&quot;&gt;">`popupDiv`</SwmToken>]
+%%     C -->|add new popup container| E[<SwmToken path="/source_code/index.html" pos="73:7:7" line-data="			&lt;div class=&quot;spPopups userprofilepopupclass&quot; th:insert=&quot;~{popups/userprofile.html}&quot;&gt;&lt;/div&gt;">`spPopups`</SwmToken>]
 %%     
 %% 
 ```
